@@ -1,0 +1,36 @@
+<div class="pt-8 flex justify-around text-xl">
+    <p class="text-green-500">Total Credit: {{ expenseManagementService.totalCredit() | currency:'INR':'symbol' }}</p>
+    <p class="text-red-500">Total Debit: {{ expenseManagementService.totalDebit() | currency:'INR':'symbol' }}</p>
+    <p class="font-bold">Remaining Balance: {{ expenseManagementService.balance() | currency:'INR':'symbol' }}</p>
+</div>
+
+@for(entry of expenseManagementService.data(); track entry){
+<div class="bg-[#e6e6e6] m-4 p-4 max-w-md mx-auto rounded-xl shadow-lg space-y-4">
+    <div class="flex justify-between">
+        <div>
+            <h3 class="text-lg font-semibold">{{ entry.title }}</h3>
+            <p class="text-gray-500">{{ entry.description }}</p>
+        </div>
+        <p class="text-xl">
+            <span
+                [ngClass]="{ 'text-[#5cb596]': entry.transactionType === 'Credit', 'text-[#e75a50]': entry.transactionType === 'Debit' }">
+                {{ entry.transactionType }}
+            </span>
+        </p>
+    </div>
+    <div>
+        <div class="flex justify-between">
+            <p><strong>Amount:</strong> {{ entry.amount | currency:'INR':'symbol' }}</p>
+        </div>
+        <div class="flex justify-between mt-4">
+            <p class=""><strong>Date & Time:</strong>{{ entry.datetime * 1000 | date: 'dd/MM/yyyy, HH:mm' }}</p>
+            <div>
+                <mat-icon aria-hidden="false" (click)="editExpense(entry)" aria-label="Example home icon"
+                    fontIcon="edit"></mat-icon>
+                <mat-icon class="ml-4" aria-hidden="false" (click)="onDelete(entry.id)" aria-label="Example home icon"
+                    fontIcon="delete"></mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+}

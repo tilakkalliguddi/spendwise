@@ -1,0 +1,13 @@
+<div class="chart-container">
+  <div class="flex">
+    <label for="fromDate" class="m-6">From:</label>
+    <input type="date" [(ngModel)]="fromDate"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block m-4 p-2.5" />
+
+    <label for="toDate"  class="m-6">To:</label>
+    <input type="date" [(ngModel)]="toDate"
+      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block m-4 p-2.5" />
+  </div>
+  <canvas baseChart [data]="barChartData()" chartType="pie">
+  </canvas>
+</div>
