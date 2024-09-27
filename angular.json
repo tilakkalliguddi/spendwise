@@ -15,6 +15,7 @@
           "options": {
             "outputPath": "dist/spendwise",
             "index": "src/index.html",
+            "404": "index.html",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
