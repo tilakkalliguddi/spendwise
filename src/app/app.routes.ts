@@ -15,5 +15,7 @@ export const routes: Routes = [
   {
     path: 'stats',
     component: chartComponent
-  }
+  },
+  { path: "**", component: expenseDetailsComponent }
+
 ];
