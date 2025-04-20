@@ -1,11 +1,11 @@
-<div class="pt-8 flex justify-around text-xl">
+<div class="pt-8  grid md:flex justify-around">
     <p class="text-green-500">Total Credit: {{ expenseManagementService.totalCredit() | currency:'INR':'symbol' }}</p>
     <p class="text-red-500">Total Debit: {{ expenseManagementService.totalDebit() | currency:'INR':'symbol' }}</p>
     <p class="font-bold">Remaining Balance: {{ expenseManagementService.balance() | currency:'INR':'symbol' }}</p>
 </div>
 
 @for(entry of expenseManagementService.data(); track entry){
-<div class="bg-[#e6e6e6] m-4 p-4 max-w-md mx-auto rounded-xl shadow-lg space-y-4">
+<div class="bg-[#e6e6e6] m-4 p-4 max-w-md md:mx-auto rounded-xl shadow-lg space-y-4">
     <div class="flex justify-between">
         <div>
             <h3 class="text-lg font-semibold">{{ entry.title }}</h3>
@@ -18,7 +18,7 @@
             </span>
         </p>
     </div>
-    <div>
+    <div class="text-xs">
         <div class="flex justify-between">
             <p><strong>Amount:</strong> {{ entry.amount | currency:'INR':'symbol' }}</p>
         </div>
